@@ -40,4 +40,10 @@ public class Project extends Model
     {
         return find.where().eq("members.email",user).findList();
     }
+
+    @Override
+    public String toString() {
+        //return "test";
+        return "Project("+id+"):"+folder+"/"+name+":"+members+" members";
+    }
 }

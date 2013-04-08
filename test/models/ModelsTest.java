@@ -100,5 +100,8 @@ public class ModelsTest extends WithApplication
         // Find all Bob's todo tasks
         List<Task> bobsTasks = Task.findTodoInvolving("bob@example.com");
         assertEquals(4, bobsTasks.size());
+
+        List<Project> all = Project.find.all();
+        assertEquals( "Play 2.0", all.get(0).name );
     }
 }

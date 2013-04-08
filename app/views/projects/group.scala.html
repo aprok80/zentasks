@@ -1,0 +1,18 @@
+@( group: String, projects: List[Project] )
+
+<li data-group="@group">
+    <span class="toggle"></span>
+    <h4 class="groupName">@group</h4>
+    <dl class="options">
+        <dt>options</dt>
+        <dd>
+            <button class="newProject">New Project</button>
+            <button class="deleteGroup">Remove group</button>
+        </dd>
+    </dl>
+    <ul>
+        @projects.map { project =>
+            @views.html.projects.item( project )
+        }
+    </ul>
+</li>
