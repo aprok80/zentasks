@@ -1,0 +1,33 @@
+@(form: Form[Application.Login])
+
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Zentasks</title>
+    <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+    <link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.at("stylesheets/login.css")">
+</head>
+<body>
+    <header>
+        <a href="@routes.Application.index" id="logo"><spen>Zen</spen>tasks</a>
+    </header>
+    @helper.form( routes.Application.authenticate ) {
+        <h1>Sign in</h1>
+        <p>
+            @if( form.hasGlobalErrors ) {
+                <p class="error">
+                    @form.globalError.message
+                </p>
+            }
+        </p>
+        <p>
+            <input type="email" name="email" placeholder="EMail" value="@form("email").value"/>
+        </p>
+        <p>
+            <input type="password" name="password" placeholder="Password"/>
+        </p>
+        <p>
+            <input type="submit">Login</input>
+        </p>
+    }
+</body>
+</html>
